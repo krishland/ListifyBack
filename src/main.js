@@ -1,4 +1,5 @@
 const express = require('express')
+const { tasksRouter } = require('./tasks/tasks.routes')
 const { Pool } = require('./pool')
 const cors = require('cors')
 
@@ -7,6 +8,8 @@ require('dotenv').config()
 const app = express()
 app.use(express.json())
 app.use(cors())
+app.use('/tasks', tasksRouter)
+// eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
   res.status(500).send({ error: err.message, status: 500 })
 })

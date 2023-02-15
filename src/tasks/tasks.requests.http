@@ -1,0 +1,28 @@
+### Lister toutes les tâches
+GET http://localhost:3000/tasks
+
+### Afficher une tâche par ID
+GET http://localhost:3000/tasks/2
+
+### Créer une tâche
+POST http://localhost:3000/tasks
+Content-Type: application/json
+
+{
+    "title": "Sortir les poubelles",
+    "content": "Ce soir",
+    "state": "À faire"
+}
+
+### Éditer une tâche
+PUT http://localhost:3000/tasks/8
+Content-Type: application/json
+
+{
+    "title": "Sortir les poubelles",
+    "content": "Dimanche",
+    "state": "Terminé"
+}
+
+### Supprimer une tâche
+DELETE http://localhost:3000/tasks/8
