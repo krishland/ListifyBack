@@ -23,6 +23,11 @@ const editTask = async (id, updateTaskBody) => {
   const task = await tasksRepository.editTask(id, updateTaskBody)
   return task
 }
+const updateTaskState = async (id, state) => {
+  await findOne(id)
+  const task = await tasksRepository.updateTaskState(id, state)
+  return task
+}
 
 const deleteTask = async (id) => {
   await findOne(id)
@@ -35,5 +40,6 @@ module.exports = {
   findOne,
   createTask,
   editTask,
+  updateTaskState,
   deleteTask,
 }

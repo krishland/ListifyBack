@@ -27,6 +27,13 @@ const editTask = async (id, updateTaskData) => {
   )
   return rows[0]
 }
+const updateTaskState = async (id, state) => {
+  const { rows } = await Pool.query(
+    'UPDATE tasks SET state=$1 WHERE id=$2 RETURNING *',
+    [state, id],
+  )
+  return rows[0]
+}
 
 const deleteTask = async (id) => {
   const { rows } = await Pool.query(
@@ -41,5 +48,6 @@ module.exports = {
   findOne,
   createTask,
   editTask,
+  updateTaskState,
   deleteTask,
 }

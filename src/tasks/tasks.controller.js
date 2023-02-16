@@ -25,6 +25,12 @@ const editTask = async (req, res) => {
   const task = await tasksService.editTask(id, req.body)
   res.send(task)
 }
+const updateTaskState = async (req, res) => {
+  const id = req.params.id
+  const { state } = req.body
+  const task = await tasksService.updateTaskState(id, state)
+  res.send(task)
+}
 
 const deleteTask = async (req, res) => {
   const id = req.params.id
@@ -37,5 +43,6 @@ module.exports = {
   findOne,
   createTask,
   editTask,
+  updateTaskState,
   deleteTask,
 }
