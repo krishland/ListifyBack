@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
   res.send('Salut')
 })
 
-const PORT = 7916
+const $PORT = 7916
 
 function start() {
   Pool.connect({
@@ -30,8 +30,8 @@ function start() {
   })
     .then(() => {
       console.log('Connexion à Postgres Railway établie avec succès.')
-      app.listen(PORT, () => {
-        console.log(`Le serveur écoute sur le port ${PORT}.`)
+      app.listen($PORT, () => {
+        console.log(`Le serveur écoute sur le port ${$PORT}.`)
       })
     })
     .catch((err) => {
